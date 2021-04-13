@@ -1,4 +1,4 @@
-# docker_base_project
+# Docker Base Project
 Basis for starting a PHP project with Docker
 
 Containers
