@@ -1,0 +1,6 @@
+*
+!.gitignore
+!DockerFile
+!nginx.conf
+!conf.d
+!conf.d/*

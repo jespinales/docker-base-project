@@ -1,0 +1,42 @@
+version: '3'
+services:
+  php:
+    restart: always
+    build: ./.docker/php
+    volumes:
+      - ./www:/var/www/:consistent
+      - ./.docker/php/log:/var/log/
+      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - postgresql
+
+  postgresql:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRESQL_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}
+      - POSTGRES_DB=${POSTGRESQL_DATABASE}
+    ports:
+      - ${POSTGRESQL_PORT}:5432
+    volumes:
+      - ./.docker/postgresql/data:/var/lib/postgresql/data:consistent
+
+  #adminer:
+  #  image: adminer
+  #  restart: always
+  #  ports:
+  #    - ${ADMINER_PORT}:8080
+  #  depends_on:
+  #    - postgresql
+
+  nginx:
+    build: .docker/nginx
+    restart: always
+    ports:
+      - ${NGINX_PORT}:80
+    volumes:
+      - ./www:/var/www:consistent
+      - ./.docker/nginx/logs:/var/log/nginx
+    depends_on:
+      - php
