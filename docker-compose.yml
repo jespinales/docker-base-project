@@ -6,7 +6,6 @@ services:
     volumes:
       - ./www:/var/www/:consistent
       - ./.docker/php/log:/var/log/
-      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
     depends_on:
       - postgresql
 

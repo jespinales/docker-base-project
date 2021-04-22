@@ -65,7 +65,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #COPY --chown=nginx:nginx . /var/www
 #RUN chown -R nginx:nginx /var/www
 
-#COPY php.ini /usr/local/etc/php/php.ini
+RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
+COPY conf.d /usr/local/etc/php/conf.d
 
 # Set Locale
 RUN locale-gen es_ES.UTF-8
