@@ -1,11 +1,23 @@
 version: '3'
 services:
+
+  #PHP 7.3
+  #php:
+  #  restart: always
+  #  build: ./.docker/php7.3
+  #  volumes:
+  #    - ./www:/var/www/:consistent
+  #    - ./.docker/php7.3/log:/var/log/
+  #  depends_on:
+  #    - postgresql
+
+  #PHP 8.0.9
   php:
     restart: always
-    build: ./.docker/php
+    build: ./.docker/php8.0.9
     volumes:
       - ./www:/var/www/:consistent
-      - ./.docker/php/log:/var/log/
+      - ./.docker/php8.0.9/log:/var/log/
     depends_on:
       - postgresql
 

@@ -8,5 +8,8 @@ up:
 down:
 	${COMPOSE} down
 
+build:
+	${COMPOSE} up -d --no-deps --build php
+
 bash:
 	${COMPOSE} exec -u root php sh

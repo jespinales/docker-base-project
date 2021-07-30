@@ -1,9 +1,7 @@
-FROM php:7.3-fpm
+FROM php:8.0.9-fpm
 
 # Set working directory
 WORKDIR /var/www
-
-# RUN apt-get update --allow-releaseinfo-change
 
 # Install dependencies
 RUN apt-get update \
@@ -16,7 +14,7 @@ RUN apt-get update \
     curl \
     wget
 
-# Install extensions
+# Install php extensions
 RUN docker-php-ext-install pdo_mysql
 
 # Install Postgre PDO pgsql
