@@ -26,6 +26,9 @@ RUN apt-get update \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
+# Install xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
