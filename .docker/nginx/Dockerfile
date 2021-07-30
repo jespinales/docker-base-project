@@ -1,4 +1,4 @@
-FROM nginx:1.17-alpine
+FROM nginx:1.21.1-alpine
 
 RUN apk update \
     && apk add bash \
