@@ -36,7 +36,6 @@ ENV TZ America/Lima
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
-COPY conf.d /usr/local/etc/php/conf.d
 
 # Set Locale
 RUN echo es_ES.UTF-8 UTF-8 >> /etc/locale.gen

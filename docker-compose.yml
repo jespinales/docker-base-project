@@ -18,6 +18,7 @@ services:
     volumes:
       - ./www:/var/www/:consistent
       - ./.docker/php8.0.9/log:/var/log/
+      - ./.docker/php8.0.9/conf.d/php-project.ini:/usr/local/etc/php/conf.d/php-project.ini
     depends_on:
       - postgresql
 
